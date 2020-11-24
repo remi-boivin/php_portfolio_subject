@@ -96,6 +96,7 @@ CREATE TABLE `PORTFOLIO` (
   `USER_ID` int NOT NULL,
   `TITLE` varchar(50) NOT NULL,
   `CREATION_DATE` date NOT NULL,
+  `DATA_TYPE` varchar(255) NOT NULL,
   `DESCRIPTION` longtext,
   `URL` varchar(100) DEFAULT NULL,
   PRIMARY KEY (`ID`),
@@ -110,7 +111,11 @@ CREATE TABLE `PORTFOLIO` (
 
 LOCK TABLES `PORTFOLIO` WRITE;
 /*!40000 ALTER TABLE `PORTFOLIO` DISABLE KEYS */;
-INSERT INTO `PORTFOLIO` (`ID`, `USER_ID`, `TITLE`, `CREATION_DATE`, `DESCRIPTION`, `URL`) VALUES (1,1,'COVID19 - Attestation','2020-04-01','Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla consequat viverra enim, in blandit dui congue id. Cras viverra maximus fermentum. Donec vel arcu venenatis, convallis dolor sit amet, semper tortor. Phasellus varius urna in tortor aliquam, in tempor mauris maximus. Phasellus ac nibh at ante vestibulum dictum. Duis nibh mi, porttitor eu mi nec, dignissim interdum velit. Nulla tortor turpis, finibus ut viverra quis, faucibus vitae massa. Aliquam id nunc imperdiet, varius mi id, ultricies leo. Nullam pretium orci quis arcu blandit, id tincidunt sem laoreet. Nullam mattis vehicula sem. Ut mattis porttitor nunc et sagittis. Nullam vitae eros augue. Lorem ipsum dolor sit amet, consectetur adipiscing elit.','https://covid19-attestation.stoodent.fr/');
+INSERT INTO `PORTFOLIO` (`ID`, `USER_ID`, `TITLE`, `CREATION_DATE`, `DATA_TYPE`, `DESCRIPTION`, `URL`) VALUES (1,1,'COVID19 - Attestation','2020-04-01', 'nature', 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla consequat viverra enim, in blandit dui congue id. Cras viverra maximus fermentum. Donec vel arcu venenatis, convallis dolor sit amet, semper tortor. Phasellus varius urna in tortor aliquam, in tempor mauris maximus. Phasellus ac nibh at ante vestibulum dictum. Duis nibh mi, porttitor eu mi nec, dignissim interdum velit. Nulla tortor turpis, finibus ut viverra quis, faucibus vitae massa. Aliquam id nunc imperdiet, varius mi id, ultricies leo. Nullam pretium orci quis arcu blandit, id tincidunt sem laoreet. Nullam mattis vehicula sem. Ut mattis porttitor nunc et sagittis. Nullam vitae eros augue. Lorem ipsum dolor sit amet, consectetur adipiscing elit.','https://covid19-attestation.stoodent.fr/');
+/*!40000 ALTER TABLE `PORTFOLIO` ENABLE KEYS */;
+INSERT INTO `PORTFOLIO` (`ID`, `USER_ID`, `TITLE`, `CREATION_DATE`, `DATA_TYPE`, `DESCRIPTION`, `URL`) VALUES (2,1,'COVID19 - Attestation','2020-04-01', 'animals', 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla consequat viverra enim, in blandit dui congue id. Cras viverra maximus fermentum. Donec vel arcu venenatis, convallis dolor sit amet, semper tortor. Phasellus varius urna in tortor aliquam, in tempor mauris maximus. Phasellus ac nibh at ante vestibulum dictum. Duis nibh mi, porttitor eu mi nec, dignissim interdum velit. Nulla tortor turpis, finibus ut viverra quis, faucibus vitae massa. Aliquam id nunc imperdiet, varius mi id, ultricies leo. Nullam pretium orci quis arcu blandit, id tincidunt sem laoreet. Nullam mattis vehicula sem. Ut mattis porttitor nunc et sagittis. Nullam vitae eros augue. Lorem ipsum dolor sit amet, consectetur adipiscing elit.','https://covid19-attestation.stoodent.fr/');
+/*!40000 ALTER TABLE `PORTFOLIO` ENABLE KEYS */;
+INSERT INTO `PORTFOLIO` (`ID`, `USER_ID`, `TITLE`, `CREATION_DATE`, `DATA_TYPE`, `DESCRIPTION`, `URL`) VALUES (3,1,'COVID19 - Attestation','2020-04-01', 'people', 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla consequat viverra enim, in blandit dui congue id. Cras viverra maximus fermentum. Donec vel arcu venenatis, convallis dolor sit amet, semper tortor. Phasellus varius urna in tortor aliquam, in tempor mauris maximus. Phasellus ac nibh at ante vestibulum dictum. Duis nibh mi, porttitor eu mi nec, dignissim interdum velit. Nulla tortor turpis, finibus ut viverra quis, faucibus vitae massa. Aliquam id nunc imperdiet, varius mi id, ultricies leo. Nullam pretium orci quis arcu blandit, id tincidunt sem laoreet. Nullam mattis vehicula sem. Ut mattis porttitor nunc et sagittis. Nullam vitae eros augue. Lorem ipsum dolor sit amet, consectetur adipiscing elit.','https://covid19-attestation.stoodent.fr/');
 /*!40000 ALTER TABLE `PORTFOLIO` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -153,11 +158,13 @@ CREATE TABLE `USER` (
   `LAST_NAME` varchar(50) NOT NULL,
   `USERNAME` varchar(20) NOT NULL,
   `FIRST_NAME` varchar(50) NOT NULL,
+  `WORK` varchar(255) NOT NULL,
   `BIRTH_DATE` date NOT NULL,
   `DESCRIPTION` longtext,
   PRIMARY KEY (`ID`),
   UNIQUE KEY `USER_USERNAME_uindex` (`USERNAME`)
 ) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8mb4;
+
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -166,7 +173,7 @@ CREATE TABLE `USER` (
 
 LOCK TABLES `USER` WRITE;
 /*!40000 ALTER TABLE `USER` DISABLE KEYS */;
-INSERT INTO `USER` (`ID`, `LAST_NAME`, `USERNAME`, `FIRST_NAME`, `BIRTH_DATE`, `DESCRIPTION`) VALUES (1,'Doe','John','john.doe','1990-06-12','Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla consequat viverra enim, in blandit dui congue id. Cras viverra maximus fermentum. Donec vel arcu venenatis, convallis dolor sit amet, semper tortor. Phasellus varius urna in tortor aliquam, in tempor mauris maximus. Phasellus ac nibh at ante vestibulum dictum. Duis nibh mi, porttitor eu mi nec, dignissim interdum velit. Nulla tortor turpis, finibus ut viverra quis, faucibus vitae massa. Aliquam id nunc imperdiet, varius mi id, ultricies leo. Nullam pretium orci quis arcu blandit, id tincidunt sem laoreet. Nullam mattis vehicula sem. Ut mattis porttitor nunc et sagittis. Nullam vitae eros augue. Lorem ipsum dolor sit amet, consectetur adipiscing elit.');
+INSERT INTO `USER` (`ID`, `LAST_NAME`, `USERNAME`, `FIRST_NAME`, `WORK`, `BIRTH_DATE`, `DESCRIPTION`) VALUES (1,'Doe','john.doe','John', 'Dev Fullstack', '1990-06-12','Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla consequat viverra enim, in blandit dui congue id. Cras viverra maximus fermentum. Donec vel arcu venenatis, convallis dolor sit amet, semper tortor. Phasellus varius urna in tortor aliquam, in tempor mauris maximus. Phasellus ac nibh at ante vestibulum dictum. Duis nibh mi, porttitor eu mi nec, dignissim interdum velit. Nulla tortor turpis, finibus ut viverra quis, faucibus vitae massa. Aliquam id nunc imperdiet, varius mi id, ultricies leo. Nullam pretium orci quis arcu blandit, id tincidunt sem laoreet. Nullam mattis vehicula sem. Ut mattis porttitor nunc et sagittis. Nullam vitae eros augue. Lorem ipsum dolor sit amet, consectetur adipiscing elit.');
 /*!40000 ALTER TABLE `USER` ENABLE KEYS */;
 UNLOCK TABLES;
 /*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
